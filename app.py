@@ -19,7 +19,7 @@ def chelik(username):
     else:
         print(m["result"])
         lol = str(m["result"][0]["newRating"])
-        out = """<pre><table> <tr><th>User</th><th>Rating</th></tr>
+        out = """<pre><table id="stats"> <tr><th>User</th><th>Rating</th></tr>
 <tr><td>{}</td><td>{}</td></tr>
 </table></pre>""".format(username, lol)
     return out
