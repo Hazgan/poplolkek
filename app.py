@@ -1,7 +1,22 @@
 from flask import Flask
 from random import randint
+import requests
 
 app = Flask(__name__)
+
+
+@app.route('/task2/cf/profile/<username>')
+def chelik(username):
+    m = requests.get("https://codeforces.com/api/user.rating?handle=" + str(username)).json()
+    if m["status"] != "OK":
+        out = "User not found"
+    else:
+        print(m["result"])
+        lol = str(m["result"][0]["newRating"])
+        out = """<pre><table> <tr><th>User</th><th>Rating</th></tr>
+<tr><td>{}</td><td>{}</td></tr>
+</table></pre>""".format(username, lol)
+    return out
 
 
 @app.route('/haba/')
@@ -38,4 +53,3 @@ def menu():
 </ul>
    </pre>"""
     return out
-
