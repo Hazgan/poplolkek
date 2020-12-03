@@ -16,13 +16,13 @@ def hello_world():
 
 @app.route('/task1/random/')
 def random():
-    out = "<pre>Haba's mark is {}</pre>".format("\n".join(randint(1, 5)))
+    out = "<pre>Haba's mark is {}</pre>".format(str(randint(1, 5)))
     return out
 
 
 @app.route('/task1/i_will_not/')
 def i_will_not():
-    s = ["<li><a>I will not waste time</a></li>"] * 100
+    s = ["<li><a>I will not waste time</a></li>" for i in range(100)]
     out = """<pre><ul id="blackboard">
  {}
 </ul></pre>""".format("\n".join(s))
@@ -38,3 +38,6 @@ def menu():
 </ul>
    </pre>"""
     return out
+
+
+app.run()
