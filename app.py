@@ -11,7 +11,7 @@ def avito(city, category, ad):
     return out
 
 
-@app.route('/task2/cf/profile/<username>')
+@app.route('/task2/cf/profile/<username>/')
 def chelik(username):
     m = requests.get("https://codeforces.com/api/user.rating?handle=" + str(username)).json()
     if m["status"] != "OK":
