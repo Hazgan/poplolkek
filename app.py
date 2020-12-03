@@ -36,6 +36,6 @@ def i_will_not():
 @app.route('/')
 def menu():
     out = """<pre><a href="#menu"></a>
-    <article id=blackboard>/task1/i_will_not/</article>
+    <article id="blackboard">/task1/i_will_not/</article>
    </pre>"""
     return out
