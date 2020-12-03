@@ -5,13 +5,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def menu():
-    out = """<pre>
-    <input type="search" id="menu">
-    <datalist id="character">
-    <option value="1"></option>
-    <option value="2"></option>
-    <option value="3"></option>
-   </datalist>
+    out = """<pre><a href=menu></a>
+    <article id=blackboard>/task1/i_will_not/</article>
    </pre>"""
     return out
 
@@ -22,7 +17,7 @@ def hello_world():
          "Hello, Arsen!",
          "Hello, Karim!"]
 
-    out = "<pre>{}</pre>".format("\n".join(s))
+    out = "<pre><a href=blackboard></a>{}</pre>".format("\n".join(s))
     return out
 
 
