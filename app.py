@@ -3,14 +3,6 @@ from flask import Flask
 app = Flask(__name__)
 
 
-@app.route('/')
-def menu():
-    out = """<pre><a href="#menu"></a>
-    <article id=blackboard>/task1/i_will_not/</article>
-   </pre>"""
-    return out
-
-
 @app.route('/haba/')
 def hello_world():
     s = ["Hello, Haba!",
@@ -38,4 +30,12 @@ def i_will_not():
          "Hello, Karim!"]
 
     out = "<pre>{}</pre>".format("\n".join(s))
+    return out
+
+
+@app.route('/')
+def menu():
+    out = """<pre><a href="#menu"></a>
+    <article id=blackboard>/task1/i_will_not/</article>
+   </pre>"""
     return out
