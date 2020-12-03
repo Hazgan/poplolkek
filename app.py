@@ -18,7 +18,7 @@ def chelik(username):
         out = "User not found"
     else:
         print(m["result"])
-        lol = str(m["result"][len(m) - 1]["newRating"])
+        lol = str(m["result"][-1]["newRating"])
         out = """<table id=stats> <tr><th>User</th><th>Rating</th></tr>
 <tr><td>{}</td><td>{}</td></tr>
 </table>""".format(username, lol)
