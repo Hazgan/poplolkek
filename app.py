@@ -1,4 +1,5 @@
 from flask import Flask
+from random import randint
 
 app = Flask(__name__)
 
@@ -9,33 +10,31 @@ def hello_world():
          "Hello, Arsen!",
          "Hello, Karim!"]
 
-    out = """<pre><article id="blackboard"></article>{}</pre>""".format("\n".join(s))
+    out = """<pre>{}</pre>""".format("\n".join(s))
     return out
 
 
 @app.route('/task1/random/')
 def random():
-    s = ["Hello, Haba!",
-         "Hello, Arsen!",
-         "Hello, Karim!"]
-
-    out = "<pre>{}</pre>".format("\n".join(s))
+    out = "<pre>Haba's mark is {}</pre>".format("\n".join(randint(1, 5)))
     return out
 
 
 @app.route('/task1/i_will_not/')
 def i_will_not():
-    s = ["Hello, Haba!",
-         "Hello, Arsen!",
-         "Hello, Karim!"]
-
-    out = "<pre>{}</pre>".format("\n".join(s))
+    s = ["<li><a>I will not waste time</a></li>"] * 100
+    out = """<pre><ul id="blackboard">
+ {}
+</ul></pre>""".format("\n".join(s))
     return out
 
 
 @app.route('/')
 def menu():
-    out = """<pre><a href="#menu"></a>
-    <a href="blackboard">/task1/i_will_not/</a>
+    out = """<pre>
+    <ul id="menu">
+ <li><a href="/task1/random/">/task1/random/</a></li>
+ <li><a href="/task1/i_will_not/">/task1/i_will_not/</a></li>
+</ul>
    </pre>"""
     return out
