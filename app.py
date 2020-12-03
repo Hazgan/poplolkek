@@ -9,7 +9,7 @@ def hello_world():
          "Hello, Arsen!",
          "Hello, Karim!"]
 
-    out = """<pre><a href="#blackboard"></a>{}</pre>""".format("\n".join(s))
+    out = """<pre><article id="blackboard"></article>{}</pre>""".format("\n".join(s))
     return out
 
 
@@ -36,6 +36,6 @@ def i_will_not():
 @app.route('/')
 def menu():
     out = """<pre><a href="#menu"></a>
-    <article id="blackboard">/task1/i_will_not/</article>
+    <a href="blackboard">/task1/i_will_not/</a>
    </pre>"""
     return out
