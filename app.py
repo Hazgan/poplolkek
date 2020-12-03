@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def menu():
-    out = """<pre><a href=menu></a>
+    out = """<pre><a href="#menu"></a>
     <article id=blackboard>/task1/i_will_not/</article>
    </pre>"""
     return out
@@ -17,7 +17,7 @@ def hello_world():
          "Hello, Arsen!",
          "Hello, Karim!"]
 
-    out = "<pre><a href=blackboard></a>{}</pre>".format("\n".join(s))
+    out = """<pre><a href="#blackboard"></a>{}</pre>""".format("\n".join(s))
     return out
 
 
