@@ -39,5 +39,3 @@ def menu():
    </pre>"""
     return out
 
-
-app.run()
