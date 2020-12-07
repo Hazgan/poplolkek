@@ -7,9 +7,7 @@ app = Flask(__name__)
 
 @app.route('/task2/avito/<city>/<category>/<ad>/')
 def avito(city, category, ad):
-    m = 'qwertyuiopasdfffghjklzxcvbnm'
-    d = randint(0, len(m) - 1)
-    out = """<h1>debug info</h1><p>city={} category={} ad={}</p><h1>{}</h1><p>{}</p>""".format(city, category, ad, m[d], m[d])
+    out = """<h1>debug info</h1><p>city={} category={} ad={}</p><h1>{}</h1><p>{}</p>""".format(city, category, ad, category[1], city[1])
     return out
 
 
