@@ -1,8 +1,31 @@
 from flask import Flask
 from random import randint
 import requests
+import inflect
 
 app = Flask(__name__)
+
+
+@app.route('/task2/num2words/<num>/')
+def numc(num):
+    if int(num) < 0 or int(num) > 999:
+        return '''{
+  "status": "FAIL"
+}
+'''
+    else:
+        p = inflect.engine()
+        lol = p.number_to_words(123)
+        if 'and' in lol:
+            lol = ''.join(lol.split(' and'))
+        if '-' in lol:
+            lol = ' '.join(lol.split('-'))
+        return '{' + '''
+  "status": "OK",
+  "number": {},
+  "isEven": false,
+  "words": "{}"
+'''.format(num, lol) + '}'
 
 
 @app.route('/task2/avito/<city>/<category>/<ad>/')
