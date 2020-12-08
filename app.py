@@ -12,7 +12,7 @@ def numc(num):
         return json.loads({"status": "FAIL"})
     else:
         p = inflect.engine()
-        lol = p.number_to_words(123)
+        lol = p.number_to_words(num)
         print(lol)
         if 'and' in lol:
             lol = ''.join(lol.split(' and'))
