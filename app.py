@@ -13,7 +13,6 @@ def numc(num):
     else:
         p = inflect.engine()
         lol = p.number_to_words(int(num))
-        print(lol)
         if 'and' in lol:
             lol = ''.join(lol.split(' and'))
         if '-' in lol:
