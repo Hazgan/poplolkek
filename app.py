@@ -22,7 +22,7 @@ def numc(num):
             m = True
         else:
             m = False
-        return json.dumps({"status": "OK", "number": num, "isEven": m, "words": str(lol)})
+        return json.dumps({"status": "OK", "number": int(num), "isEven": m, "words": str(lol)})
 
 
 @app.route('/task2/avito/<city>/<category>/<ad>/')
