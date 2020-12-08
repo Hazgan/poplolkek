@@ -9,20 +9,20 @@ app = Flask(__name__)
 @app.route('/task2/num2words/<num>/')
 def numc(num):
     if int(num) < 0 or int(num) > 999:
-        return json.loads({"status": "FAIL"})
+        return json.dumps({"status": "FAIL"})
     else:
         p = inflect.engine()
-        lol = p.number_to_words(num)
+        lol = p.number_to_words(int(num))
         print(lol)
         if 'and' in lol:
             lol = ''.join(lol.split(' and'))
         if '-' in lol:
             lol = ' '.join(lol.split('-'))
-        if num % 2 == 0:
+        if int(num) % 2 == 0:
             m = True
         else:
             m = False
-        return json.loads({"status": "OK", "number": num, "isEven": m, "words": str(lol)})
+        return json.dumps({"status": "OK", "number": num, "isEven": m, "words": str(lol)})
 
 
 @app.route('/task2/avito/<city>/<category>/<ad>/')
