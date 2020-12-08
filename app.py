@@ -18,7 +18,11 @@ def numc(num):
             lol = ''.join(lol.split(' and'))
         if '-' in lol:
             lol = ' '.join(lol.split('-'))
-        return json.loads({"status": "OK", "number": num, "isEven": False, "words": str(lol)})
+        if num % 2 == 0:
+            m = True
+        else:
+            m = False
+        return json.loads({"status": "OK", "number": num, "isEven": m, "words": str(lol)})
 
 
 @app.route('/task2/avito/<city>/<category>/<ad>/')
