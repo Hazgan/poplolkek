@@ -53,7 +53,7 @@ def top():
 
 @app.errorhandler(404)
 def page_not_found(error):
-    return render_template("error404.html")
+    return render_template("error404.html"), 404
 
 
 @app.route('/task2/num2words/<num>/')
