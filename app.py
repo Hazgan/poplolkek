@@ -4,6 +4,7 @@ import requests
 import inflect
 import json
 import random as rnd
+from random import getrandbits, shuffle
 import string
 from collections import OrderedDict
 from operator import itemgetter
@@ -103,9 +104,9 @@ def secreet(link, secret):
         r_get = requests.post("https://arsenwisheshappy2021.herokuapp.com/query", data=data_get)
         game_info = json.loads(r_get.text)
         if game_info["active"] == "False":
-            error_f = True
-        else:
             error_f = False
+        else:
+            error_f = True
         players_list = game_info["players"]
         if len(players_list) == 0 or len(players_list) % 2 == 1:
             error_q = True
