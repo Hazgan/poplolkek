@@ -61,9 +61,9 @@ def play(link):
         r_get = requests.post("https://arsenwisheshappy2021.herokuapp.com/query", data=data_get)
         game_info = json.loads(r_get.text)
         if game_info["active"] == "False":
-            error = True
-        else:
             error = False
+        else:
+            error = True
         return render_template("play.html", error_start=error, link_after_post=link_after_post)
     elif request.method == "POST" and request.form["name"].strip() == '':
         link_after_post = '/task4/santa/play/{link}'.format(link=link)
