@@ -60,9 +60,9 @@ def play(link):
         r_get = requests.post("https://arsenwisheshappy2021.herokuapp.com/query", data=data_get)
         game_info = json.loads(r_get.text)
         if game_info["active"] == "False":
-            error = False
-        else:
             error = True
+        else:
+            error = False
         return render_template("play.html", error_start=error, link_after_post=link_after_post)
     elif request.method == "POST" and request.form["name"].strip() == '':
         link_after_post = '/task4/santa/play/{link}'.format(link=link)
@@ -112,7 +112,7 @@ def secreet(link, secret):
         else:
             error_q = False
         link_2 = "/task4/santa/toss/{link}/{secret}".format(link=link, secret=secret)
-        return render_template("toss_start.html", error_q=error_q, error_f=error_f, players_list=players_list,
+        return render_template("toss_start.html", error_f=error_f, players_list=players_list,
                                link_2=link_2)
 
 
