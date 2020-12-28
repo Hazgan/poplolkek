@@ -113,7 +113,7 @@ def secreet(link, secret):
         else:
             error_q = False
         link_2 = "/task4/santa/toss/{link}/{secret}".format(link=link, secret=secret)
-        return render_template("toss_start.html", error_f=error_f, players_list=players_list,
+        return render_template("toss_start.html", error_q=error_q, error_f=error_f, players_list=players_list,
                                link_2=link_2)
 
 
